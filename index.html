@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Level Academy | Learn Today. Lead Tomorrow.</title>
+<meta name="description" content="Learn Computer, Coding, Typing and Digital Skills at Next Level Academy.">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #f7f9fd;
+  color: #17233c;
+}
+
+header {
+  background: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px #0000000c;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 900;
+  color: #142b50;
+}
+
+.logo span { color: #2874e8; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #34445e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover { color: #2874e8; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #2874e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-btn {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 26px;
+}
+
+.hero {
+  padding: 90px 7%;
+  background: linear-gradient(120deg,#10264b,#2059a6);
+  color: white;
+}
+
+.hero-content {
+  max-width: 750px;
+}
+
+.hero small {
+  color: #b9d5ff;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(38px,6vw,64px);
+  margin: 20px 0;
+  line-height: 1.12;
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #dce8ff;
+  margin-bottom: 28px;
+}
+
+.hero .btn {
+  background: white;
+  color: #174b91;
+}
+
+.section {
+  padding: 70px 7%;
+}
+
+.section h2 {
+  color: #142b50;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.description {
+  color: #68768c;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.course {
+  background: white;
+  padding: 26px;
+  border-radius: 15px;
+  border: 1px solid #e5eaf2;
+  transition: .3s;
+}
+
+.course:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px #142b5015;
+}
+
+.course .emoji { font-size: 35px; }
+
+.course h3 {
+  color: #17345f;
+  margin: 15px 0 10px;
+}
+
+.course p {
+  color: #68768c;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.tag {
+  display: inline-block;
+  background: #eaf2ff;
+  color: #2874e8;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.practice {
+  background: #edf3fc;
+}
+
+.panel {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #e5eaf2;
+}
+
+textarea {
+  width: 100%;
+  padding: 14px;
+  margin: 15px 0;
+  border: 1px solid #ccd5e3;
+  border-radius: 9px;
+  min-height: 130px;
+  resize: vertical;
+  font-size: 15px;
+}
+
+.result {
+  margin-top: 15px;
+  color: #2059a6;
+  font-weight: bold;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+iframe {
+  width: 100%;
+  height: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+.about {
+  text-align: center;
+  background: white;
+}
+
+.about p {
+  max-width: 750px;
+  margin: 15px auto;
+  color: #68768c;
+  line-height: 1.8;
+}
+
+footer {
+  background: #10213e;
+  color: white;
+  text-align: center;
+  padding: 35px 15px;
+}
+
+footer p {
+  margin: 12px 0;
+  color: #c4d2e8;
+}
+
+@media(max-width:800px) {
+  nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav.show { display: flex; }
+  .menu-btn { display: block; }
+  .course-grid,.lab-grid { grid-template-columns: 1fr; }
+  .hero { padding: 65px 7%; }
+  .section { padding: 50px 7%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">NEXT LEVEL <span>ACADEMY</span></div>
+
+  <button class="menu-btn" id="menuBtn">☰</button>
+
+  <nav id="navigation">
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#typing">Typing</a>
+    <a href="#coding">Coding Lab</a>
+    <a href="#about">About</a>
+    <a href="#login" class="btn">Student Login</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <small>WELCOME TO NEXT LEVEL ACADEMY</small>
+
+    <h1>Learn Today.<br>Lead Tomorrow.</h1>
+
+    <p>
+      Start learning from zero. Improve your computer skills,
+      practice typing, learn coding and build a better future
+      with Next Level Academy.
+    </p>
+
+    <a href="#courses" class="btn">Explore Free Courses →</a>
+  </div>
+</section>
+
+<section class="section" id="courses">
+  <h2>Explore Our Courses</h2>
+  <p class="description">
+    Learn step by step with easy explanations and practical examples.
+  </p>
+
+  <div class="course-grid">
+
+    <div class="course">
+      <div class="emoji">💻</div>
+      <h3>Computer Classes</h3>
+      <p>
+        Learn Computer Fundamentals, Windows, MS Word,
+        MS Excel, PowerPoint, Internet and more.
+      </p>
+      <span class="tag">Chapter-wise Learning</span>
+    </div>
+
+    <div class="course">
+      <div class="emoji">⌨️</div>
+      <h3>Typing Master</h3>
+      <p>
+        Improve your English and Hindi typing speed
+        through lessons, practice and tests.
+      </p>
+      <span class="tag">Typing Practice</span>
+    </div>
+
+    <div class="course">
+      <div class="emoji">👨‍💻</div>
+      <h3>Coding Classes</h3>
+      <p>
+        Start your coding journey with HTML, CSS
+        and other beginner-friendly programming lessons.
+      </p>
+      <span class="tag">Learn Coding</span>
+    </div>
+
+    <div class="course">
+      <div class="emoji">🧠</div>
+      <h3>Reasoning</h3>
+      <p>
+        Understand reasoning concepts with easy
+        explanations and practice questions.
+      </p>
+      <span class="tag">Practice Questions</span>
+    </div>
+
+    <div class="course">
+      <div class="emoji">📐</div>
+      <h3>Mathematics</h3>
+      <p>
+        Build your mathematical foundation
+        with step-by-step lessons and examples.
+      </p>
+      <span class="tag">Learn from Zero</span>
+    </div>
+
+    <div class="course">
+      <div class="emoji">🔬</div>
+      <h3>Science</h3>
+      <p>
+        Explore science concepts through simple
+        explanations and everyday examples.
+      </p>
+      <span class="tag">Easy Learning</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section practice" id="typing">
+  <h2>Typing Practice Lab</h2>
+  <p class="description">
+    Practice your typing and check your accuracy.
+  </p>
+
+  <div class="panel">
+    <p id="sample">
+      Learning every day helps us build confidence
+      and useful skills for the future.
+    </p>
+
+    <textarea id="typingInput"
+      placeholder="Start typing here..."></textarea>
+
+    <button class="btn" id="checkTyping">
+      Check My Typing
+    </button>
+
+    <div class="result" id="typingResult"></div>
+  </div>
+</section>
+
+<section class="section" id="coding">
+  <h2>HTML Coding Playground</h2>
+  <p class="description">
+    Write HTML and CSS and see your result instantly.
+  </p>
+
+  <div class="lab-grid">
+
+    <div class="panel">
+      <h3>Your Code</h3>
+
+      <textarea id="codeEditor"><h1>Hello Students!</h1>
+<p>Welcome to Next Level Academy.</p>
+
+<style>
+body {
+  font-family: Arial;
+  padding: 20px;
+  color: #17345f;
+}
+h1 { color: #2874e8; }
+</style></textarea>
+
+      <button class="btn" id="runCode">Run Code</button>
+    </div>
+
+    <div class="panel">
+      <h3>Live Preview</h3>
+      <iframe id="codePreview"
+        title="HTML code preview"
+        sandbox=""></iframe>
+    </div>
+
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <h2>About Next Level Academy</h2>
+
+  <p>
+    Our mission is to make quality education simple
+    and accessible to everyone. Learn computer skills,
+    improve your knowledge and prepare yourself for
+    the future with us.
+  </p>
+
+  <h3>Learn Today. Lead Tomorrow.</h3>
+</section>
+
+<section class="section" id="login">
+  <div class="panel" style="text-align:center">
+    <h2>Student Portal</h2>
+    <p class="description">
+      Student Login and Dashboard are planned for the next development stage.
+    </p>
+    <span class="tag">Coming Soon</span>
+  </div>
+</section>
+
+<footer>
+  <h3>NEXT LEVEL ACADEMY</h3>
+  <p>Learn Today. Lead Tomorrow.</p>
+  <small>© <span id="year"></span> Next Level Academy. All rights reserved.</small>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navigation = document.getElementById("navigation");
+
+menuBtn.addEventListener("click", () => {
+  navigation.classList.toggle("show");
+});
+
+navigation.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navigation.classList.remove("show");
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+document.getElementById("checkTyping").addEventListener("click", () => {
+  const sample = document.getElementById("sample").textContent.trim();
+  const typed = document.getElementById("typingInput").value;
+
+  let correct = 0;
+
+  for (let i = 0; i < typed.length; i++) {
+    if (typed[i] === sample[i]) correct++;
+  }
+
+  const accuracy = typed.length
+    ? Math.round(correct / typed.length * 100)
+    : 0;
+
+  document.getElementById("typingResult").textContent =
+    "Characters typed: " + typed.length +
+    " | Accuracy: " + accuracy + "%";
+});
+
+function runCode() {
+  const code = document.getElementById("codeEditor").value;
+
+  document.getElementById("codePreview").srcdoc = code;
+}
+
+document.getElementById("runCode").addEventListener("click", runCode);
+
+runCode();
+</script>
+
+</body>
+</html>
